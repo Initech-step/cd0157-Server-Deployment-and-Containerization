@@ -7,10 +7,13 @@ import pytest
 
 import main
 
-SECRET = 'myjwtsecret60789'
-TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjEzMDY3OTAsIm5iZiI6MTU2MDA5NzE5MCwiZW1haWwiOiJ3b2xmQHRoZWRvb3IuY29tIn0.IpM4VMnqIgOoQeJxUbLT-cRcAjK41jronkVrqRLFmmk'
-EMAIL = 'etimi5319@gmail.com'
-PASSWORD = 'iniudo607'
+#get env variables and set fallbacks
+#this is so that in case the env variables arent set, it wont result in error
+
+SECRET = os.environ.get('SECRET', 'fallbacksecret')
+TOKEN = os.environ.get('TOKEN', 'fallbacktoken')
+EMAIL = os.environ.get('EMAIL', 'fallbackemail@gmail.com')
+PASSWORD = os.environ.get('PASSWORD', 'fallbackpassword')
 
 @pytest.fixture
 def client():
